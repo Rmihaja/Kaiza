@@ -22,7 +22,6 @@ if (theme) {
 
 // show user profile
 const toggleProfileDisplay = () => {
-    console.log('hello');
     setTimeout(function () {
         profileDisplay.classList.toggle('hide');
     }, 10);
@@ -127,7 +126,6 @@ const renderChat = chatData => {
 
     // rendering updated database
     for (chatMessage of chatData) {
-        console.log(chatMessage);
         let message = document.createElement('li');
         message.innerHTML = createMessageText(chatMessage);
         messagesList.appendChild(message);
@@ -138,12 +136,11 @@ const renderChat = chatData => {
         }, 10);
     }
     
-        
-    scrollToBottom();
+    setTimeout(scrollToBottom(), 10);
 }
 
 const scrollToBottom = () => {
-    window.scrollTo(0, body.scrollHeight);
+    window.scrollTo(0, messagesList.scrollHeight);
 }
 
 // *** event handler init

@@ -29,8 +29,24 @@ class Chat {
         return this.messages;
     }
 
-    addMessage (Message) {
-        this.messages.push(Message);
+    getMembers() {
+        let membersList = '';
+        for (let member of this.members) {
+            membersList += `@${member.getName()}, `
+        }
+
+        // ? removes last ',' before return
+        return membersList.slice(0, membersList.length - 2);
+    }
+
+    addMessage (message) {
+        this.messages.push(message);
+    }
+
+    addMessages (messagesList) {
+        for (let message of messagesList) {
+            this.messages.push(message);
+        }
     }
 
     isMember (user) {
