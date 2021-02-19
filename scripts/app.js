@@ -14,15 +14,6 @@ const loadNavigationBar = (loggedUser, groupChatsData, peopleData) => {
     displayChatsNav(groupChatNavItems, peopleNavItems);
 }
 
-// getting user selected a tab
-const getSelectedA = targetedElement => {
-    if (targetedElement.nodeName == 'A') {
-        return targetedElement;
-    } else {
-        return targetedElement.parentNode;
-    }
-}
-
 // switch to user selected chat
 const switchTab = target => {
 
@@ -54,6 +45,17 @@ const switchTab = target => {
     window.scrollTo(0, body.scrollHeight);
 }
 
+// * getters 
+
+// getting user selected A tab
+const getSelectedA = targetedElement => {
+    if (targetedElement.nodeName == 'A') {
+        return targetedElement;
+    } else {
+        return targetedElement.parentNode;
+    }
+}
+
 const getGroupChatData = chatId => {
     let targetChat = groupChatsData.filter(group => group.getId() == chatId)[0];
     return groupChatsData[groupChatsData.indexOf(targetChat)].getMessages(); 
@@ -63,6 +65,38 @@ const getPrivateGroupChatData = chatId => {
     let targetChat = privateChatsData.filter(group => group.getId() == chatId)[0];
     return privateChatsData[privateChatsData.indexOf(targetChat)].getMessages();     
 }
+
+// * setters
+
+// submitting post
+const submitMessageAsPost = (author, inputPostContent, additionalContent)  => {
+    // check if there is a message to send
+    if (inputPostContent.value || additionalContent.files[0]) {
+        submitMessage(author, 'post', null, inputPostContent, additionalContent);
+
+        // resetting input value
+        resetInput(inputPostContent);
+        resetInput(photoInputContent);
+
+        // rendering updated database
+        renderPosts(postsData);
+    }
+}
+
+// submitting message
+const submitMessageAsMessage = (author, chatId, inputMessageContent) => {
+    // check if there is a message to send
+    if (inputMessageContent.value) {
+        submitMessage(author, 'message', chatId, inputMessageContent, null);
+
+        // resetting input value
+        resetInput(inputMessageContent);
+    }
+}
+
+// const createGroupTab = () => {
+//     groupChatsData.push
+// }
 
 // *** firing application
 
@@ -93,29 +127,6 @@ const initApp = loggedUser => {
     }
 }
 
-const submitMessageAsPost = (author, inputPostContent, additionalContent)  => {
-    // check if there is a message to send
-    if (inputPostContent.value || additionalContent.files[0]) {
-        submitMessage(author, 'post', null, inputPostContent, additionalContent);
-
-        // resetting input value
-        resetInput(inputPostContent);
-        resetInput(photoInputContent);
-
-        // rendering updated database
-        renderPosts(postsData);
-    }
-}
-
-const submitMessageAsMessage = (author, chatId, inputMessageContent) => {
-    // check if there is a message to send
-    if (inputMessageContent.value) {
-        submitMessage(author, 'message', chatId, inputMessageContent, null);
-
-        // resetting input value
-        resetInput(inputMessageContent);
-    }
-}
 
 const getActiveTabId = () => {
     return document.querySelector('.active').id;

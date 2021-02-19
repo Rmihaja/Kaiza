@@ -26,6 +26,10 @@ const profileDisplay = document.querySelector('#profileDisplay');
 // *** Navbar element
 const announcesActivityLink = document.querySelector('#announcesLink');
 
+// get add people or chat button
+const createChatButton = document.querySelector('#createGroupChat')
+const addPeopleButton = document.querySelector('#addPeople');
+
 // *** posts handler elements
 
 // getting input text content

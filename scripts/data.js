@@ -105,5 +105,5 @@ groupChatsData[4].addMessages([
 // Direction et administration
 groupChatsData[5].addMessages([
     new Message(HRAdministrator, '8:30', 'Maintenant que les roles sont bien répartis, les choses avancent bien. Seul #RechercheEtDéveloppement traine un peu avec leurs idées sur le planning'),
-    new Message(usersList[0], '18:19', 'Je trouve celà assez normal, le design est important. Mais il faut bien se décider alors je les ai secoué un peu quand même')
+    new Message(usersList[0], '18:19', 'Je trouve celà assez normal, le design est important. Mais il faut bien se décider alors je les un peu ai secoué quand même')
 ])
