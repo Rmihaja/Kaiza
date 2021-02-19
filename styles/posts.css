@@ -1,0 +1,35 @@
+/* *** post only related style */
+
+.post.add {
+   width: 50%;
+}
+
+.post .textcontent {
+   height: 100px;
+   padding: 15px;
+}
+
+.posts {
+   width: 80%;
+   align-items: center;
+   flex-direction: column-reverse;
+}
+
+.posts li {
+   background-color: var(--bg-item);
+   box-shadow: var(--shadow);
+   border-radius: 10px;
+   margin-bottom: 50px;
+   padding: 20px;
+   width: 100%;
+
+   /* adding a new post animation */
+   opacity: 0;
+   transform: translate(0px, -20px);
+}
+
+/* li show after adding item animation */
+li.show {
+   opacity: 1;
+   transform: none;
+}

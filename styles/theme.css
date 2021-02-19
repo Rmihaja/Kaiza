@@ -1,0 +1,42 @@
+:root {
+   --grey0: #fff;
+   --grey1: #f5f5f5;
+   --grey2: #e0e0e0;
+   --grey3: #999;
+   --grey4: #212121;
+   --grey5: #181818;
+   --grey6: #000;
+   --red0: #e65a41;
+   --red1: #ff8252;
+   --red2: #fdc371;
+   --yellow: #fde348;
+   --dark-blue: #182d48;
+   --box-radius: 5px;
+}
+
+.light {
+   --bg: var(--grey1);
+   --bg-nav: var(--grey0);
+   --bg-header: var(--grey0);
+   --bg-item: var(--grey0);
+   --bg-icon: none;
+   --shadow: 0px 3px 10px var(--grey2);
+   --text: var(--dark-blue);
+   --text-accent: var(--dark-blue);
+   --accent1: var(--red0);
+   --accent2: var(--yellow);
+}
+
+.dark {
+   --bg: var(--grey5);
+   --bg-nav: var(--grey4);
+   --bg-header: var(--grey4);
+   --bg-item: var(--grey4);
+   --bg-icon: var(--yellow);
+   --shadow: none;
+   --text: var(--grey0);
+   --text-accent: var(--red1);
+   --text-hover: var(--dark-blue);
+   --accent1: var(--red1);
+   --accent2: var(--yellow);
+}

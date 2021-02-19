@@ -1,0 +1,64 @@
+/* *** messages only related style */
+
+.message.add {
+   width: 90%;
+   position: sticky;
+   bottom: 0px;
+   padding: 0px 5% 10px 5%;
+   background-color: var(--bg);
+   margin: 0px;
+}
+
+.message .textcontent {
+   padding: 15px;
+}
+
+.messages {
+   width: 90%;
+   min-height: 80vh;
+   align-items: flex-start;
+   justify-content: flex-end;
+   margin: 0px;
+}
+
+.messages li {
+   display: flex;
+   flex-direction: row;
+   margin-bottom: 20px;
+
+   /* adding a new message animation */
+   opacity: 0;
+   transform: translate(0px, 15px);
+}
+
+/* li show after adding item animation */
+li.show {
+   opacity: 1;
+   transform: none;
+}
+
+.messages .metadata {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   margin-left: 10px;
+   background-color: var(--bg-item);
+   width: auto;
+   padding: 5px 20px 0px 20px;
+   border-radius: var(--box-radius);
+}
+
+.messages h2 {
+   margin: 2px 0px 0px 0px;
+   font-size: 11px;
+}
+
+.messages h3 {
+   margin: 0px;
+   padding-left: 0px;
+   font-size: 11px;
+}
+
+.messages .author p {
+   font-size: 12px;
+}

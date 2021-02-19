@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Kaiza - Annonces</title>
+    <link rel="stylesheet" href="./styles/theme.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/posts.css">
+    <link rel="stylesheet" href="./styles/messages.css">
+    <script src="./scripts/model/user.js"></script>
+    <script src="./scripts/model/message.js"></script>
+    <script src="./scripts/model/chat.js"></script>
+    <script src="./scripts/data.js"></script>
+    <script defer src="./scripts/dataManager.js"></script>
+    <script defer src="./scripts/view/DOMElement.js"></script>
+    <script defer src="./scripts/view/ui.js"></script>
+    <script defer src="./scripts/app.js"></script>
+</head>
+<body class="light">
+    <header class="row">
+        <h1 class="title">MyToys</h1>
+        <div>
+            <div class="row">
+                <button class="profile-picture" id="showProfile"><img id="userPicture" src="" alt="CR" class="profile-picture"></button>
+                <button class="icon" id="toggleTheme"><img src="./images/icons/dark_mode.svg" alt="changer theme"></button>
+            </div>
+            <div class="dropdown column hide" id="profileDisplay">
+                <div class="profile column">
+                    <h2 id="userName" class="username">Cassy Ranaivoson</h2>
+                    <button class="logbutton">Déconnexion</button>
+                </div>
+                <div class="login column hide">
+                    <input class="textcontent" type="text">
+                    <button class="logbutton">Connexion</button>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div class="content">
+        <!-- navbar -->
+        <nav>
+            <h1 class="nav-category">Activités</h1>
+            <a href="#" class="active" id="announcesLink" href=""><img class="icon" src="./images/icons/campaign.svg" alt="annonces"><p>Annonces</p></a>
+            <h1 class="nav-category">Groupes</h1>
+            <div id="groupTabs">
+            </div>
+            <a href="#"><img class="icon" src="./images/icons/group_add.svg" alt=""><p>Créer un groupe</p></a>
+            <h1 class="nav-category">Conversations</h1>
+            <div id="peopleTabs">
+            </div>
+            <a href="#"><img class="icon" id="addPerson" src="./images/icons/person_add.svg" alt="ajouter un contact"><p>Ajouter un contact</p></a>
+        </nav>
+        <main>
+            <section class="display" id="announcesSection">
+            <!-- announce creation oox -->
+                <div class="add post">
+                    <div class="box">
+                        <textarea class="textcontent"  id="inputPostContent" placeholder="Poster une nouvelle annonce..."></textarea>
+                        <button class="round-corner" id="submitPostButton">+</button>
+                    </div>
+                    <div class="box">
+                        <label class="morecontent">+ Photo<input type="file"  accept="image/*" id="photoInput"></label>
+                        <label class="morecontent">+ Video</label>
+                        <label class="morecontent">+ Evenement</label>
+                    </div>
+                    <p id="photoDescription"></p>
+                </div>
+                <!-- announces list -->
+                <ul id="posts" class="posts">
+                </ul>
+            </section>
+            <section hidden="true" id="messagesSection">
+                <!-- messages list -->
+                <ul id="messages" class="messages">
+                </ul>
+                <!-- message creation box -->
+                <div class="add message">
+                    <div class="box message">
+                        <input class="textcontent" id="inputMessageContent" type="text" placeholder="Ecrire un message...">
+                        <button class="round-corner" id="submitMessageButton">></button>
+                    </div>
+                    <div class="box">
+                        <label class="morecontent">+ Emoji</label>
+                        <label class="morecontent">+ GIF</label>
+                        <label class="morecontent">+ Mention</label>
+                        <label class="morecontent">+ Fichier</label>
+                        <label class="morecontent">+ Sondage</label>
+                        <label class="morecontent">+ Conférence</label>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
