@@ -8,13 +8,20 @@ const userInitials = user => {
     return user.match(/\b(\w)/g).join('');
 }
 
+const getImageURL = image => {
+    let imageURL = URL.createObjectURL(image);
+    URL.revokeObjectURL(image);
+    console.log(imageURL);
+    return imageURL;
+}
+
 // *** functions init
 
 // submit post to database
-const submitMessage = (author, targetData, targetId, inputContent, additionalContent) => {
+const submitMessage = (author, targetData, targetId, textValue, additionalContentValue) => {
 
         // create message
-        let message = new Message(author, getSubmitDate(), inputContent.value, getAdditionalContent(additionalContent));
+        let message = new Message(author, getSubmitDate(), textValue, getAdditionalContent(additionalContentValue));
 
         // store message to type database
         storeMessage(message, targetData, targetId); 
@@ -32,14 +39,9 @@ const getSubmitDate = () => {
 const getAdditionalContent = additionalInputContent => {
     let additionalContent = null;
     if (additionalInputContent) {
-        if (additionalInputContent.files[0]) {
-            additionalContent = {};
-            if (additionalInputContent.files[0].type.includes('image')) {
-                let imageURL = URL.createObjectURL(additionalInputContent.files[0]);
-                URL.revokeObjectURL(additionalInputContent.files[0]);
-                additionalContent.image = imageURL;
-            }
-            resetInput(additionalInputContent);
+        additionalContent = {};
+        if (additionalInputContent[0].type.includes('image')) {
+            additionalContent.image = getImageURL(additionalInputContent[0]);
         }
     } 
     return additionalContent;
@@ -69,4 +71,20 @@ storeMessage = (message, targetData, id) => {
             renderChat(privateChatsData[privateChatsData.indexOf(targetChat)].getMessages());
         }
     }
+}
+
+// submit new group chat to database
+
+const addGroupChat = (name, icon, members) => {
+    groupChatsData.push(new Chat(name, getChatIcon(icon), members));
+}
+
+// group chat icon setters
+
+const getChatIcon = (iconInputContent) => {
+    if (iconInputContent[0]) {
+        return getImageURL(iconInputContent[0]);
+    }
+    // return default group icon if not specified by user
+    return './images/icons/group_default.svg'
 }

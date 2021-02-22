@@ -49,12 +49,12 @@
                 <a href="#" id="createGroupChat"><img class="icon" src="./images/icons/group_add.svg" alt=""><p>Créer un groupe</p></a>
                 <div id="createGroupBox" class="dropbox popup-hide column">
                     <div class="row">
-                        <label class="round-corner"><img src="./images/icons/group_default.svg" alt=""><input type="file" accept="image/*"></label>
-                        <input class="textcontent padding" type="text" placeholder="Nouveau groupe">
+                        <label class="round-corner"><img id="groupIcon" class="icon " src="./images/icons/group_default.svg" alt=""><input id="groupIconInput" type="file" accept="image/*"></label>
+                        <input id="groupNameInput" class="textcontent padding" type="text" placeholder="Nouveau groupe">
                     </div>
                     <div class="row">
-                        <button class="padding">Ajouter</button>
-                        <button class="padding">Annuler</button>
+                        <button id="addChat" class="padding">Ajouter</button>
+                        <button id="cancelCreateChat" class="padding">Annuler</button>
                 </div>
             </div>
             <h1 class="nav-category">Conversations</h1>

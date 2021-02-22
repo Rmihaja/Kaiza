@@ -49,6 +49,10 @@ const createPeopleTab = peopleData => {
 }
 
 const displayChatsNav = (groupTabsList, peopleTabsList) => {
+    // cleaning old data
+    groupTabs.innerHTML = '';
+    peopleTabs.innerHTML = '';
+
     for (group of groupTabsList) {
         groupTabs.innerHTML += createGroupTab(group);
     }
@@ -103,7 +107,7 @@ const renderPosts = postsData => {
 // reset post input value on submit 
 const resetInput = input => {
     input.value = '';
-    photoDescription.innerHTML = '';
+    input.innerHTML = '';
 } 
 
 // *********** Message Displayer *************
@@ -143,6 +147,17 @@ const scrollToBottom = () => {
     window.scrollTo(0, messagesList.scrollHeight);
 }
 
+// *********** Group Creation Displayer *************
+
+const toggleGroupCreationBox = () => {
+    createGroupBox.classList.toggle('popup-show');
+    createGroupBox.classList.toggle('popup-hide'); 
+    resetInput(groupNameInputContent);
+    resetInput(groupIconInputContent);  
+    // reset group icon to default icon
+    groupIconImage.src = './images/icons/group_default.svg';
+}
+
 // *** event handler init
 
 // header events
@@ -155,6 +170,19 @@ profileButton.onclick = toggleProfileDisplay;
 
 // ? when user add photo to post
 photoInputContent.onchange = () => {
-    console.log( photoInputContent.files[0]);
     photoDescription.innerHTML = photoInputContent.files[0].name;
+}
+
+// group creation event
+
+// ? preview image with src
+const previewImage = image => {
+    let imageURL = URL.createObjectURL(image);
+    URL.revokeObjectURL(image);
+    return imageURL;
+}
+
+// ? when user add custom group icon
+groupIconInputContent.onchange = () => {
+    groupIconImage.src = previewImage(groupIconInputContent.files[0]);
 }

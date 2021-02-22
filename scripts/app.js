@@ -77,11 +77,11 @@ const getPrivateGroupChatData = chatId => {
 const submitMessageAsPost = (author, inputPostContent, additionalContent)  => {
     // check if there is a message to send
     if (inputPostContent.value || additionalContent.files[0]) {
-        submitMessage(author, 'post', null, inputPostContent, additionalContent);
+        submitMessage(author, 'post', null, inputPostContent.value, additionalContent.files);
 
         // resetting input value
         resetInput(inputPostContent);
-        resetInput(photoInputContent);
+        resetInput(additionalContent);
 
         // rendering updated database
         renderPosts(postsData);
@@ -92,22 +92,20 @@ const submitMessageAsPost = (author, inputPostContent, additionalContent)  => {
 const submitMessageAsMessage = (author, chatId, inputMessageContent) => {
     // check if there is a message to send
     if (inputMessageContent.value) {
-        submitMessage(author, 'message', chatId, inputMessageContent, null);
+        submitMessage(author, 'message', chatId, inputMessageContent.value, null);
 
-        // resetting input value
+        // resetting inputs value
         resetInput(inputMessageContent);
     }
 }
 
-const toggleGroupCreationBox = () => {
-    console.log(createGroupBox.classList);
-    createGroupBox.classList.toggle('popup-show');
-    createGroupBox.classList.toggle('popup-hide');   
+// submitting group chat draft
+const submitGroupCreation = (name, icon) => {
+    if (name.value) {
+        addGroupChat(name.value, icon.files, usersList);
+        toggleGroupCreationBox();
+    }
 }
-
-// const createGroupTab = groupName => {
-//     groupChatsData.push
-// }
 
 // *** firing application
 
@@ -119,7 +117,6 @@ const initApp = loggedUser => {
     // setting up header
 
     // loading nav panel
-    let selectedLink;
     loadNavigationBar(loggedUser, groupChatsData, usersList);
 
     // loading posts on post Tab
@@ -138,7 +135,13 @@ const initApp = loggedUser => {
     }
 
     // triggering group creation toggle
-    createChatButton.onclick = () => toggleGroupCreationBox();
+    createChatLink.onclick = () => toggleGroupCreationBox();
+    addChatButton.onclick = () => {
+        submitGroupCreation(groupNameInputContent, groupIconInputContent);
+        loadNavigationBar(loggedUser, groupChatsData, usersList);
+    }
+    cancelChatCreationButton.onclick = () => toggleGroupCreationBox();
+    
 }
 
 window.onload = initApp(usersList[0]);
