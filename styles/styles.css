@@ -55,6 +55,10 @@ a {
    color: var(--text);
 }
 
+input[type='file'] {
+   display: none;
+}
+
 button {
    border-radius: var(--box-radius);
    border: none;
@@ -67,8 +71,14 @@ button {
    flex-shrink: 0;
 }
 
+button:focus,
+a:focus {
+   outline: none;
+}
+
 button:hover,
 a:hover,
+.round-corner:hover,
 .morecontent:hover {
    background-color: var(--accent2);
    color: var(--text-hover);
@@ -78,16 +88,10 @@ a:hover,
    outline: none;
 }
 
-button:focus,
-a:focus {
-   outline: none;
-}
-
 .content {
    display: flex;
    flex-direction: row;
    flex-grow: 1;
-   background-color: var(--bg);
 }
 
 .icon {
@@ -115,6 +119,14 @@ a:focus {
    width: 40px;
    font-size: 16px;
    font-weight: bold;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-shrink: 0;
+}
+
+.padding {
+   padding: 5px 10px 5px 10px;
 }
 
 .row {
@@ -127,6 +139,14 @@ a:focus {
    display: flex;
    flex-direction: column;
    align-items: center;
+}
+
+.dropbox {
+   opacity: 1;
+   box-shadow: var(--shadow);
+   background-color: var(--bg-item);
+   border-radius: var(--box-radius);
+   padding: 0px 20px 10px 20px;
 }
 
 /* *** body layer : header - div */
@@ -146,18 +166,9 @@ header {
    font-size: 18px;
 }
 
-.dropdown {
+.log {
    position: absolute;
    transform: translate(-50px, 25px);
-   opacity: 1;
-   box-shadow: var(--shadow);
-   background-color: var(--bg-item);
-   border-radius: var(--box-radius);
-   padding: 0px 20px 10px 20px;
-}
-
-.logbutton {
-   padding: 5px 10px 5px 10px;
 }
 
 .username {
@@ -209,6 +220,24 @@ nav p {
 
 .active p {
    color: var(--bg);
+}
+
+.addPeople {
+   overflow: visible;
+}
+
+.popup-hide {
+   height: 0px;
+   padding: 0px;
+   margin: 0px;
+   overflow: hidden;
+}
+
+.popup-show {
+   height: auto;
+   padding: auto;
+   margin: auto;
+   /* overflow: visible; */
 }
 
 /* *** section layer */
@@ -275,10 +304,6 @@ main {
 
 .morecontent:hover {
    border: 1px solid var(--accent2);
-}
-
-.morecontent input[type='file'] {
-   display: none;
 }
 
 #photoDescription {

@@ -42,7 +42,8 @@ const switchTab = target => {
         document.querySelector('.active').classList.remove('active');
         selectedLink.classList.add('active');
     }
-    window.scrollTo(0, body.scrollHeight);
+    
+    scrollToBottom();
 }
 
 // * getters 
@@ -54,6 +55,10 @@ const getSelectedA = targetedElement => {
     } else {
         return targetedElement.parentNode;
     }
+}
+
+const getActiveTabId = () => {
+    return document.querySelector('.active').id;
 }
 
 const getGroupChatData = chatId => {
@@ -94,7 +99,13 @@ const submitMessageAsMessage = (author, chatId, inputMessageContent) => {
     }
 }
 
-// const createGroupTab = () => {
+const toggleGroupCreationBox = () => {
+    console.log(createGroupBox.classList);
+    createGroupBox.classList.toggle('popup-show');
+    createGroupBox.classList.toggle('popup-hide');   
+}
+
+// const createGroupTab = groupName => {
 //     groupChatsData.push
 // }
 
@@ -125,11 +136,9 @@ const initApp = loggedUser => {
             submitMessageAsMessage(loggedUser, getActiveTabId(), inputMessageContent);
         }
     }
-}
 
-
-const getActiveTabId = () => {
-    return document.querySelector('.active').id;
+    // triggering group creation toggle
+    createChatButton.onclick = () => toggleGroupCreationBox();
 }
 
 window.onload = initApp(usersList[0]);

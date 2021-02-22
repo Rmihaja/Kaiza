@@ -30,6 +30,9 @@ const announcesActivityLink = document.querySelector('#announcesLink');
 const createChatButton = document.querySelector('#createGroupChat')
 const addPeopleButton = document.querySelector('#addPeople');
 
+// get chat creation box 
+const createChatPopup = document.querySelector('#createGroupBox');
+
 // *** posts handler elements
 
 // getting input text content

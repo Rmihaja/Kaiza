@@ -24,10 +24,10 @@
                 <button class="profile-picture" id="showProfile"><img id="userPicture" src="" alt="CR" class="profile-picture"></button>
                 <button class="icon" id="toggleTheme"><img src="./images/icons/dark_mode.svg" alt="changer theme"></button>
             </div>
-            <div class="dropdown column hide" id="profileDisplay">
+            <div class="dropbox log column hide" id="profileDisplay">
                 <div class="profile column">
                     <h2 id="userName" class="username">Cassy Ranaivoson</h2>
-                    <button class="logbutton">Déconnexion</button>
+                    <button class="padding">Déconnexion</button>
                 </div>
                 <div class="login column hide">
                     <input class="textcontent" type="text">
@@ -45,7 +45,18 @@
             <h1 class="nav-category">Groupes</h1>
             <div id="groupTabs">
             </div>
-            <a href="#" id="createGroupChat"><img class="icon" src="./images/icons/group_add.svg" alt=""><p>Créer un groupe</p></a>
+            <div class="add-group">
+                <a href="#" id="createGroupChat"><img class="icon" src="./images/icons/group_add.svg" alt=""><p>Créer un groupe</p></a>
+                <div id="createGroupBox" class="dropbox popup-hide column">
+                    <div class="row">
+                        <label class="round-corner"><img src="./images/icons/group_default.svg" alt=""><input type="file" accept="image/*"></label>
+                        <input class="textcontent padding" type="text" placeholder="Nouveau groupe">
+                    </div>
+                    <div class="row">
+                        <button class="padding">Ajouter</button>
+                        <button class="padding">Annuler</button>
+                </div>
+            </div>
             <h1 class="nav-category">Conversations</h1>
             <div id="peopleTabs">
             </div>
