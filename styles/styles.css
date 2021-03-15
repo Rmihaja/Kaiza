@@ -146,7 +146,8 @@ a:hover,
    box-shadow: var(--shadow);
    background-color: var(--bg-item);
    border-radius: var(--box-radius);
-   padding: 0px 20px 10px 20px;
+   margin: 10px 20px 0px 20px;
+   padding: 5px 5px 10px 5px;
 }
 
 /* *** body layer : header - div */
@@ -164,6 +165,8 @@ header {
 
 .title {
    font-size: 18px;
+   text-transform: none;
+   color: var(--accent1);
 }
 
 .log {
@@ -229,14 +232,12 @@ nav p {
 .popup-hide {
    height: 0px;
    padding: 0px;
-   margin: 0px;
    overflow: hidden;
 }
 
 .popup-show {
    height: auto;
    padding: auto;
-   margin: auto;
    /* overflow: visible; */
 }
 

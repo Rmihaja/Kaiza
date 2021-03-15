@@ -38,9 +38,10 @@ const getSubmitDate = () => {
 
 const getAdditionalContent = additionalInputContent => {
     let additionalContent = null;
+    console.log(additionalInputContent);
     if (additionalInputContent) {
         additionalContent = {};
-        if (additionalInputContent[0].type.includes('image')) {
+        if (additionalInputContent[0] && additionalInputContent[0].type.includes('image')) {
             additionalContent.image = getImageURL(additionalInputContent[0]);
         }
     } 
