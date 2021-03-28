@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,13 +18,31 @@
     <script defer src="./scripts/view/ui.js"></script>
     <script defer src="./scripts/app.js"></script>
 </head>
-<body class="light">
+
+<body id="root" class="light">
     <header class="row">
-        <h1 class="title">Kaiza</h1>
+        <div class="row">
+            <a href="#root" class="menu-open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+                    <path d="M0 0h24v24H0z" fill="none" />
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+                </svg>
+            </a>
+            <a href="#" class="menu-close menu">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+                    <path d="M0 0h24v24H0V0z" fill="none" />
+                    <path
+                        d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+                </svg>
+            </a>
+            <h1 class="title">Kaiza</h1>
+        </div>
         <div>
             <div class="row">
-                <button class="profile-picture" id="showProfile"><img id="userPicture" src="" alt="CR" class="profile-picture"></button>
-                <button class="icon" id="toggleTheme"><img src="./images/icons/dark_mode.svg" alt="changer theme"></button>
+                <button class="profile-picture" id="showProfile"><img id="userPicture" src="" alt="CR"
+                        class="profile-picture"></button>
+                <button class="icon" id="toggleTheme"><img src="./images/icons/dark_mode.svg"
+                        alt="changer theme"></button>
             </div>
             <div class="dropbox log column hide" id="profileDisplay">
                 <div class="profile column">
@@ -42,37 +61,48 @@
         <!-- navbar -->
         <nav>
             <h1 class="nav-category">Activités</h1>
-            <a href="#" class="active" id="announcesLink" href=""><img class="icon" src="./images/icons/campaign.svg" alt="annonces"><p>Annonces</p></a>
+            <a href="#" class="active" id="announcesLink" href=""><img class="icon" src="./images/icons/campaign.svg"
+                    alt="annonces">
+                <p>Annonces</p>
+            </a>
             <h1 class="nav-category">Groupes</h1>
             <div id="groupTabs">
             </div>
             <div class="add-group">
-                <a href="#" id="createGroupChat"><img class="icon" src="./images/icons/group_add.svg" alt=""><p>Créer un groupe</p></a>
+                <a href="#" id="createGroupChat"><img class="icon" src="./images/icons/group_add.svg" alt="">
+                    <p>Créer un groupe</p>
+                </a>
                 <div id="createGroupBox" class="dropbox popup-hide column">
                     <div class="row">
-                        <label class="round-corner"><img id="groupIcon" class="icon " src="./images/icons/group_default.svg" alt=""><input id="groupIconInput" type="file" accept="image/*"></label>
+                        <label class="round-corner"><img id="groupIcon" class="icon "
+                                src="./images/icons/group_default.svg" alt=""><input id="groupIconInput" type="file"
+                                accept="image/*"></label>
                         <input id="groupNameInput" class="textcontent padding" type="text" placeholder="Nouveau groupe">
                     </div>
                     <div class="row">
                         <button id="addChat" class="padding">Ajouter</button>
                         <button id="cancelCreateChat" class="padding">Annuler</button>
+                    </div>
                 </div>
-            </div>
-            <h1 class="nav-category">Conversations</h1>
-            <div id="peopleTabs">
-            </div>
-            <a href="#" id="addPeople"><img class="icon" src="./images/icons/person_add.svg" alt="ajouter un contact"><p>Ajouter un contact</p></a>
+                <h1 class="nav-category">Conversations</h1>
+                <div id="peopleTabs">
+                </div>
+                <a href="#" id="addPeople"><img class="icon" src="./images/icons/person_add.svg"
+                        alt="ajouter un contact">
+                    <p>Ajouter un contact</p>
+                </a>
         </nav>
         <main>
             <section class="display" id="announcesSection">
-            <!-- announce creation oox -->
+                <!-- announce creation oox -->
                 <div class="add post">
                     <div class="box">
-                        <textarea class="textcontent"  id="inputPostContent" placeholder="Poster une nouvelle annonce..."></textarea>
+                        <textarea class="textcontent" id="inputPostContent"
+                            placeholder="Poster une nouvelle annonce..."></textarea>
                         <button class="round-corner" id="submitPostButton">+</button>
                     </div>
                     <div class="box">
-                        <label class="morecontent">+ Photo<input type="file"  accept="image/*" id="photoInput"></label>
+                        <label class="morecontent">+ Photo<input type="file" accept="image/*" id="photoInput"></label>
                         <!-- TODO : add functionality -->
                         <!-- <label class="morecontent">+ Video</label>
                         <label class="morecontent">+ Evenement</label> -->
@@ -90,11 +120,12 @@
                 <!-- message creation box -->
                 <div class="add message">
                     <div class="box message">
-                        <input class="textcontent" id="inputMessageContent" type="text" placeholder="Ecrire un message...">
+                        <input class="textcontent" id="inputMessageContent" type="text"
+                            placeholder="Ecrire un message...">
                         <button class="round-corner" id="submitMessageButton">></button>
                     </div>
                     <div class="box">
-                       <!-- TODO : add functionality -->
+                        <!-- TODO : add functionality -->
                         <!-- <label class="morecontent">+ Emoji</label>
                         <label class="morecontent">+ GIF</label>
                         <label class="morecontent">+ Mention</label>
@@ -107,4 +138,5 @@
         </main>
     </div>
 </body>
+
 </html>

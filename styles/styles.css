@@ -158,9 +158,29 @@ header {
    margin: 0px;
    padding: 5px 20px 5px 20px;
    position: sticky;
-   z-index: 1;
+   z-index: 2;
    top: 0px;
    box-shadow: var(--shadow);
+}
+
+.menu {
+   display: none;
+   margin: 0px 10px 0px 0px;
+   padding: 0px;
+   color: var(--accent1);
+   height: 30px;
+   width: 30px;
+   border-radius: var(--box-radius);
+   text-align: center;
+}
+
+a svg {
+   transform: translateY(3px);
+   fill: var(--accent1);
+}
+
+a svg:hover {
+   fill: var(--grey6);
 }
 
 .title {
@@ -197,6 +217,7 @@ nav {
    height: 92vh;
    scrollbar-width: none;
    background-color: var(--bg-header);
+   z-index: 1;
 }
 
 .nav-category {
@@ -334,4 +355,40 @@ li img {
    width: inherit;
    height: auto;
    border-radius: var(--box-radius);
+}
+
+/* responsive properties */
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+   .menu-open {
+      display: block;
+   }
+
+   #root:target .menu-open {
+      display: none;
+   }
+
+   .menu-close {
+      display: none;
+   }
+
+   #root:target .menu-close {
+      display: block;
+   }
+
+   nav {
+      position: fixed;
+      left: -250px;
+      box-shadow: var(--shadow);
+      height: 100vh;
+   }
+
+   #root:target nav {
+      left: 0px;
+   }
+
+   #root:target section {
+      filter: blur(2px);
+   }
 }
